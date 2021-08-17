@@ -6,6 +6,9 @@ for STX and ETX occurrences to identify packets.
 You can find a C++ implementation here:
 https://egit.irs.uni-stuttgart.de/fsfw/fsfw/src/branch/master/globalfunctions/DleEncoder.cpp
 """
+
+__version__ = "0.1.0"
+
 import enum
 from typing import Tuple
 
