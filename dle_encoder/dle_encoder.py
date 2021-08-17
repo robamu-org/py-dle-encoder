@@ -76,7 +76,6 @@ def decode_dle(
       the passed bytearray, the decoding function should be called again.
     """
     encoded_index = 0
-    decoded_index = 0
     source_len = len(source_packet)
     dest_stream = bytearray()
     if source_packet[encoded_index] != STX_CHAR:
@@ -98,7 +97,6 @@ def decode_dle(
         else:
             dest_stream.append(source_packet[encoded_index])
         encoded_index += 1
-        decoded_index += 1
 
     if source_packet[encoded_index] != ETX_CHAR:
         return DleErrorCodes.DECODING_ERROR, dest_stream, encoded_index + 1
