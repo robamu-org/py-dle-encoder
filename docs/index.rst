@@ -80,13 +80,6 @@ dle_encoder module
    :undoc-members:
    :show-inheritance:
 
-DleEncoder class
----------------------
-
-.. autoclass:: dle_encoder.dle_encoder.DleEncoder
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 Indices and tables
 ==================
