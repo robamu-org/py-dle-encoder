@@ -22,12 +22,20 @@ strictly char based reception of packets encoded with DLE,
 STX can be used to notify a reader that actual data will start to arrive
 while ETX can be used to notify the reader that the data has ended.
 
+Example:
+
+``[0, STX, DLE] -> [STX, 0, 0, DLE, STX + 0x40, DLE, DLE, ETX]``
+
 Non-escaped mode
 ---------------------
 
 The encoded stream starts with DLE STX and ends with DLE ETX. All DLE occurrences in the stream
 are escaped with DLE. If the receiver detects a DLE char, it needs to read the next char
 to determine whether a start (STX) or end (ETX) of a frame has been detected.
+
+Example:
+
+``[0, STX, DLE] -> [DLE, STX, 0, DLE, STX, DLE, DLE, DLE, ETX]``
 
 Other pages (online)
 
