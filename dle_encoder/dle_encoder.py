@@ -38,9 +38,9 @@ class DleEncoder:
         """Create an encoder instance.
 
         :param escape_stx_etx: Configure the encoder to run in the escaped mode. Currently, this
-        is the only supported mode
+            is the only supported mode
         :param escape_cr: If running is escaped mode, this flag can be used to escape CR occurrences
-        as well
+            as well
         """
         self.escape_stx_tx = escape_stx_etx
         self.escape_cr = escape_cr

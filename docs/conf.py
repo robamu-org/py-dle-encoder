@@ -32,6 +32,8 @@ version = release = dle_encoder.__version__
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx']
 
+autoclass_content = 'both'
+
 # The suffix of source filenames.
 source_suffix = '.rst'
 
