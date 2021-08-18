@@ -7,9 +7,7 @@ DLE ASCII encoder for Python
 =======================================
 
 This encoder provides a simple ASCII transport layer for serial data. It uses 
-[the C0 and C1 ASCII control characters](https://en.wikipedia.org/wiki/C0_and_C1_control_codes) for this.
-You can find a corresponding C++ implementation
-` here <https://egit.irs.uni-stuttgart.de/fsfw/fsfw/src/branch/development/src/fsfw/globalfunctions/DleEncoder.cpp>`_.
+`the C0 and C1 ASCII control characters`_ for this. You can find a corresponding `C++ implementation here`_.
 This encoder supports two modes:
 
 Escaped mode
@@ -43,6 +41,8 @@ Other pages (online)
 - This page, when viewed online is at https://tmtccmd.readthedocs.io/en/latest/
 
 .. _`project page on GitHub`: https://github.com/robamu-org/py-dle-encoder
+.. _`the C0 and C1 ASCII control characters`: https://en.wikipedia.org/wiki/C0_and_C1_control_codes
+.. _`C++ implementation here`: https://egit.irs.uni-stuttgart.de/fsfw/fsfw/src/branch/development/src/fsfw/globalfunctions/DleEncoder.cpp
 
 .. toctree::
    :maxdepth: 2
