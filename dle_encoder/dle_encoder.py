@@ -28,8 +28,8 @@ ETX_BYTE = bytes([ETX_CHAR])
 
 
 class DleErrorCodes(enum.Enum):
-    OK = 0,
-    END_REACHED = 1,
+    OK = 0
+    END_REACHED = 1
     DECODING_ERROR = 2
 
 
