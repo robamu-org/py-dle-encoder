@@ -20,7 +20,7 @@ class DleErrorCodes(enum.Enum):
     DECODING_ERROR = 1
 
 
-def encode_dle(
+def encode(
         source_packet: bytearray, add_stx_etx: bool = True, encode_cr: bool = False
 ) -> bytearray:
     """Encodes a given stream with DLE encoding.
@@ -60,7 +60,7 @@ def encode_dle(
     return dest_stream
 
 
-def decode_dle(
+def decode(
         source_packet: bytearray, decode_cr: bool = False
 ) -> Tuple[DleErrorCodes, bytearray, int]:
     """Decodes a given DLE encoded data stream. This call only returns the first packet found.

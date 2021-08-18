@@ -35,8 +35,9 @@ import dle_encoder
 
 test_stream = bytearray([1, 2, 3])
 encoded_stream = dle_encoder.encode(test_stream)
-print(test_stream)
-
 decode_status, decoded_stream, decoded_bytes = dle_encoder.decode(encoded_stream)
+
+print(test_stream)
+print(encoded_stream)
 print(decoded_stream)
 ```
