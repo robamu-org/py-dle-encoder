@@ -6,12 +6,11 @@
 DLE ASCII encoder for Python
 =======================================
 
-This encoder provides a simple ASCII transport layer for serial data.
-A give data stream is encoded by adding a STX char at the beginning and an ETX char at the end.
-All STX and ETX occurrences in the packet are encoded as well so the receiver can simply look
-for STX and ETX occurrences to identify packets.
-You can find a C++ implementation
-`here <https://egit.irs.uni-stuttgart.de/fsfw/fsfw/src/branch/development/src/fsfw/globalfunctions/DleEncoder.cpp>`_
+This encoder provides a simple ASCII transport layer for serial data. It uses 
+[the C0 and C1 ASCII control characters](https://en.wikipedia.org/wiki/C0_and_C1_control_codes) for this.
+You can find a corresponding C++ implementation
+`here <https://egit.irs.uni-stuttgart.de/fsfw/fsfw/src/branch/development/src/fsfw/globalfunctions/DleEncoder.cpp>`_.
+This encoder supports two modes:
 
 Escaped mode
 ---------------------
