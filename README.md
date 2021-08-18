@@ -11,3 +11,32 @@ occurrences to identify packets.
 
 You can find a C++ implementation
 [here](https://egit.irs.uni-stuttgart.de/fsfw/fsfw/src/branch/master/globalfunctions/DleEncoder.cpp).
+
+# Install
+
+You can install this package from PyPI
+
+Linux:
+
+```sh
+python3 -m pip install dle-encoder
+```
+
+Windows:
+
+```sh
+py -m pip install dle-encoder
+```
+
+# Examples
+
+```py
+import dle_encoder
+
+test_stream = bytearray([1, 2, 3])
+encoded_stream = dle_encoder.encode(test_stream)
+print(test_stream)
+
+decode_status, decoded_stream, decoded_bytes = dle_encoder.decode(encoded_stream)
+print(decoded_stream)
+```
