@@ -1,4 +1,4 @@
 # Reexport module so it can be used more easily
 from dle_encoder.dle_encoder import *
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
