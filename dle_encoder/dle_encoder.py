@@ -6,9 +6,6 @@ for STX and ETX occurrences to identify packets.
 You can find a C++ implementation here:
 https://egit.irs.uni-stuttgart.de/fsfw/fsfw/src/branch/master/globalfunctions/DleEncoder.cpp
 """
-
-__version__ = "0.1.0"
-
 import enum
 from typing import Tuple
 
@@ -85,7 +82,7 @@ def decode_dle(
         return DleErrorCodes.DECODING_ERROR, dest_stream, 0
     encoded_index += 1
 
-    while encoded_index < source_len and source_packet[encoded_index] != ETX_CHAR \
+    while encoded_index < source_len - 1 and source_packet[encoded_index] != ETX_CHAR \
             and source_packet[encoded_index] != STX_CHAR:
         if source_packet[encoded_index] == DLE_CHAR:
             next_byte = source_packet[encoded_index + 1]
@@ -102,7 +99,7 @@ def decode_dle(
         encoded_index += 1
 
     if source_packet[encoded_index] != ETX_CHAR:
-        return DleErrorCodes.DECODING_ERROR, dest_stream, encoded_index + 1
+        return DleErrorCodes.DECODING_ERROR, dest_stream, encoded_index
     else:
         encoded_index += 1
         return DleErrorCodes.OK, dest_stream, encoded_index
