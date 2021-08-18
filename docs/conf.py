@@ -32,6 +32,8 @@ version = release = dle_encoder.__version__
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx']
 
+# The suffix of source filenames.
+source_suffix = '.rst'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
