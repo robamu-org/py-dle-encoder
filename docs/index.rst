@@ -27,7 +27,7 @@ Other pages (online)
 API Documentation
 ---------------------
 
-.. automodule:: dle_encoder
+.. automodule:: dle_encoder.dle_encoder
    :members:
 
 Indices and tables
