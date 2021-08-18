@@ -51,11 +51,14 @@ py -m pip install dle-encoder
 import dle_encoder
 
 encoder = dle_encoder.DleEncoder()
-test_stream = bytearray([1, 2, 3])
-encoded_stream = encoder.encode(test_stream)
-decode_status, decoded_stream, decoded_bytes = encoder.decode(encoded_stream)
+test_array = bytearray([1, 2, 3])
+encoded = encoder.encode(test_array)
+retval, decoded, bytes_decoded = encoder.decode(encoded)
 
-print(test_stream)
-print(encoded_stream)
-print(decoded_stream)
+print(test_array)
+print(encoded)
+print(decoded)
 ```
+
+The non-escaped mode can be used by passing `escape_stx_etc=False` to the
+`DleEncoder` constructor.

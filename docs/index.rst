@@ -44,6 +44,24 @@ Other pages (online)
 Examples
 ===================
 
+Here is an example on how to use the escaped mode
+
+::
+
+    import dle_encoder
+
+    encoder = dle_encoder.DleEncoder()
+    test_array = bytearray([1, 2, 3])
+    encoded = encoder.encode(test_array)
+    retval, decoded, bytes_decoded = encoder.decode(encoded)
+
+    print(test_array)
+    print(encoded)
+    print(decoded)
+
+The non-escaped mode can be used by passing ``escape_stx_etc=False`` to the
+:py:class:`dle_encoder.dle_encoder.DleEncoder` constructor.
+
 API Documentation
 ===================
 
@@ -51,6 +69,12 @@ dle_encoder module
 ---------------------
 
 .. automodule:: dle_encoder.dle_encoder
+   :members:
+
+DleEncoder class
+---------------------
+
+.. autoclass:: dle_encoder.dle_encoder.DleEncoder
    :members:
 
 Indices and tables
