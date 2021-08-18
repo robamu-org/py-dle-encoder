@@ -24,7 +24,13 @@ Other pages (online)
    :maxdepth: 2
    :caption: Contents:
 
+Examples
+===================
+
 API Documentation
+===================
+
+dle_encoder module
 ---------------------
 
 .. automodule:: dle_encoder.dle_encoder
