@@ -13,7 +13,8 @@ for STX and ETX occurrences to identify packets.
 You can find a C++ implementation
 `here <https://egit.irs.uni-stuttgart.de/fsfw/fsfw/src/branch/development/src/fsfw/globalfunctions/DleEncoder.cpp>`_
 
-1. Escaped mode
+Escaped mode
+---------------------
 
 The encoded stream starts with a STX marker and ends with an ETX marker.
 STX and ETX occurrences in the stream are escaped and internally encoded as well so the
@@ -22,7 +23,8 @@ strictly char based reception of packets encoded with DLE,
 STX can be used to notify a reader that actual data will start to arrive
 while ETX can be used to notify the reader that the data has ended.
 
-2. Non-escaped mode
+Non-escaped mode
+---------------------
 
 The encoded stream starts with DLE STX and ends with DLE ETX. All DLE occurrences in the stream
 are escaped with DLE. If the receiver detects a DLE char, it needs to read the next char
