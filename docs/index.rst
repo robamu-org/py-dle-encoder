@@ -20,6 +20,9 @@ Other pages (online)
 
 .. _`project page on GitHub`: https://github.com/robamu-org/py-dle-encoder
 
+.. automodule:: dle_encoder
+   :members:
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
