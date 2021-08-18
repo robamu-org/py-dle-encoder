@@ -11,7 +11,7 @@ DLE_BYTE = bytes([DLE_CHAR])
 TEST_ARRAY_0 = bytearray(5)
 TEST_ARRAY_1 = bytearray([0x00, DLE_CHAR, 0x00])
 TEST_ARRAY_2 = bytearray([0x00, START_MARKER, 0x00])
-TEST_ARRAY_3 = bytearray([0x00, dle_encoder.CARRIAGE_RETURN, START_MARKER])
+TEST_ARRAY_3 = bytearray([0x00, dle_encoder.CARRIAGE_RETURN, END_MARKER])
 TEST_ARRAY_4 = bytearray([DLE_CHAR, END_MARKER, START_MARKER])
 
 
@@ -53,7 +53,7 @@ class TestEncoder(TestCase):
         expected.append(DLE_CHAR)
         expected.append(dle_encoder.CARRIAGE_RETURN + 0x40)
         expected.append(DLE_CHAR)
-        expected.append(START_MARKER + 0x40)
+        expected.append(END_MARKER + 0x40)
         expected.append(END_MARKER)
         self.assertEqual(encoded, expected)
 
