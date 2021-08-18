@@ -33,9 +33,10 @@ py -m pip install dle-encoder
 ```py
 import dle_encoder
 
+encoder = dle_encoder.DleEncoder()
 test_stream = bytearray([1, 2, 3])
-encoded_stream = dle_encoder.encode(test_stream)
-decode_status, decoded_stream, decoded_bytes = dle_encoder.decode(encoded_stream)
+encoded_stream = encoder.encode(test_stream)
+decode_status, decoded_stream, decoded_bytes = encoder.decode(encoded_stream)
 
 print(test_stream)
 print(encoded_stream)
