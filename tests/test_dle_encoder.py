@@ -80,12 +80,12 @@ class TestEncoder(TestCase):
     def test_escaped_decoding(self):
         encoder = dle_encoder.DleEncoder()
         self.generic_decoder_test(encoder=encoder)
-        self.faulty_source_for_decoing(encoder=encoder)
+        self.faulty_source_for_decoding(encoder=encoder)
 
     def test_non_escaped_decoding(self):
         encoder = dle_encoder.DleEncoder(escape_stx_etx=False)
         self.generic_decoder_test(encoder=encoder)
-        self.faulty_source_for_decoing(encoder=encoder)
+        self.faulty_source_for_decoding(encoder=encoder)
 
     def generic_decoder_test(self, encoder: dle_encoder.DleEncoder):
         self.decode_given_array(encoder=encoder, array=TEST_ARRAY_0)
@@ -103,7 +103,7 @@ class TestEncoder(TestCase):
         self.assertEqual(array, decoded)
         self.assertEqual(bytes_decoded, len(encoded))
 
-    def faulty_source_for_decoing(self, encoder: dle_encoder.DleEncoder):
+    def faulty_source_for_decoding(self, encoder: dle_encoder.DleEncoder):
         # End marker invalid. Everything except end marker is decoded
         encoded = encoder.encode(TEST_ARRAY_2)
         encoded[len(encoded) - 1] = 0x00
