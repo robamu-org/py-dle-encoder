@@ -1,6 +1,7 @@
 [![package](https://github.com/robamu-org/py-dle-encoder/actions/workflows/package.yml/badge.svg)](https://github.com/robamu-org/py-dle-encoder/actions/workflows/package.yml)
 [![Documentation Status](https://readthedocs.org/projects/dle-encoder/badge/?version=latest)](https://dle-encoder.readthedocs.io/en/latest/?badge=latest)
 [![codecov](https://codecov.io/gh/robamu-org/py-dle-encoder/branch/main/graph/badge.svg?token=GQ5VW8PKKS)](https://codecov.io/gh/robamu-org/py-dle-encoder)
+[![PyPI version](https://badge.fury.io/py/dle-encoder.svg)](https://badge.fury.io/py/dle-encoder)
 
 DLE Encoder for Python
 ======
