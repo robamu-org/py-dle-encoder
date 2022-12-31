@@ -45,15 +45,15 @@ class DleEncoder:
         self.escape_stx_tx = escape_stx_etx
         self.escape_cr = escape_cr
 
-    def encode(
-            self, source_packet: bytes, add_stx_etx: bool = True
-    ) -> bytearray:
+    def encode(self, source_packet: bytes, add_stx_etx: bool = True) -> bytearray:
         """Encodes a given stream with DLE encoding.
 
         :return: Encoded bytearray.
         """
         if self.escape_stx_tx:
-            return self.__encode_escaped(source_packet=source_packet, add_stx_etx=add_stx_etx)
+            return self.__encode_escaped(
+                source_packet=source_packet, add_stx_etx=add_stx_etx
+            )
         else:
             encoded_packet = bytearray()
             encoded_packet.append(DLE_CHAR)
@@ -63,7 +63,9 @@ class DleEncoder:
             encoded_packet.append(ETX_CHAR)
             return encoded_packet
 
-    def __encode_escaped(self, source_packet: bytes, add_stx_etx: bool = True) -> bytearray:
+    def __encode_escaped(
+        self, source_packet: bytes, add_stx_etx: bool = True
+    ) -> bytearray:
         dest_stream = bytearray()
         source_len = len(source_packet)
         source_index = 0
@@ -73,8 +75,9 @@ class DleEncoder:
         while source_index < source_len:
             next_byte = source_packet[source_index]
             # STX, ETX and CR characters in the stream need to be escaped with DLE
-            if (next_byte == STX_CHAR or next_byte == ETX_CHAR) or \
-                    (self.escape_cr and next_byte == CARRIAGE_RETURN):
+            if (next_byte == STX_CHAR or next_byte == ETX_CHAR) or (
+                self.escape_cr and next_byte == CARRIAGE_RETURN
+            ):
                 dest_stream.append(DLE_CHAR)
                 """Escaped byte will be actual byte + 0x40. This prevents
                 STX and ETX characters from appearing
@@ -95,9 +98,7 @@ class DleEncoder:
             dest_stream.append(ETX_CHAR)
         return dest_stream
 
-    def decode(
-            self, source_packet: bytes
-    ) -> Tuple[DleErrorCodes, bytearray, int]:
+    def decode(self, source_packet: bytes) -> Tuple[DleErrorCodes, bytearray, int]:
         """Decodes a given DLE encoded data stream. This call only returns the first packet found.
 
         It might be necessary to call this function multiple times, depending on the third
@@ -120,7 +121,7 @@ class DleEncoder:
         return retval, decoded_packet, decoded_bytes
 
     def read(
-            self, file: Union[RawIOBase, BytesIO]
+        self, file: Union[RawIOBase, BytesIO]
     ) -> Tuple[DleErrorCodes, bytearray, int]:
         """Read DLE encoded packets from a given file or byte stream
 
@@ -140,7 +141,7 @@ class DleEncoder:
             return self.__read_non_escaped(file=file)
 
     def __read_escaped(
-            self, file: Union[RawIOBase, BytesIO]
+        self, file: Union[RawIOBase, BytesIO]
     ) -> Tuple[DleErrorCodes, bytearray, int]:
         encoded_index = 0
         dest_stream = bytearray()
@@ -161,8 +162,9 @@ class DleEncoder:
                     return DleErrorCodes.DECODING_ERROR, dest_stream, encoded_index
                 else:
                     next_byte = next_byte[0]
-                if (next_byte == ESCAPED_STX or next_byte == ESCAPED_ETX) or \
-                        (self.escape_cr and next_byte == ESCAPED_CR):
+                if (next_byte == ESCAPED_STX or next_byte == ESCAPED_ETX) or (
+                    self.escape_cr and next_byte == ESCAPED_CR
+                ):
                     dest_stream.append(next_byte - ESCAPE_JUMP)
                     encoded_index += 2
                 elif next_byte == DLE_CHAR:
@@ -179,7 +181,7 @@ class DleEncoder:
 
     @staticmethod
     def __read_non_escaped(
-            file: Union[RawIOBase, BytesIO]
+        file: Union[RawIOBase, BytesIO]
     ) -> Tuple[DleErrorCodes, bytearray, int]:
         encoded_index = 0
         dest_stream = bytearray()
