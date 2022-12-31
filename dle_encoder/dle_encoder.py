@@ -46,7 +46,7 @@ class DleEncoder:
         self.escape_cr = escape_cr
 
     def encode(
-            self, source_packet: bytearray, add_stx_etx: bool = True
+            self, source_packet: bytes, add_stx_etx: bool = True
     ) -> bytearray:
         """Encodes a given stream with DLE encoding.
 
@@ -63,7 +63,7 @@ class DleEncoder:
             encoded_packet.append(ETX_CHAR)
             return encoded_packet
 
-    def __encode_escaped(self, source_packet: bytearray, add_stx_etx: bool = True) -> bytearray:
+    def __encode_escaped(self, source_packet: bytes, add_stx_etx: bool = True) -> bytearray:
         dest_stream = bytearray()
         source_len = len(source_packet)
         source_index = 0
@@ -96,7 +96,7 @@ class DleEncoder:
         return dest_stream
 
     def decode(
-            self, source_packet: bytearray
+            self, source_packet: bytes
     ) -> Tuple[DleErrorCodes, bytearray, int]:
         """Decodes a given DLE encoded data stream. This call only returns the first packet found.
 
